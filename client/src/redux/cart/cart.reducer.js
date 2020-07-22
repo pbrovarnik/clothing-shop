@@ -35,6 +35,21 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
 				...currentState,
 				cartItems: [],
 			};
+		case CartActionTypes.SET_CART_FROM_FIREBASE:
+			return {
+				...currentState,
+				cartItems: action.payload,
+			};
+		case CartActionTypes.UPDATE_CART_IN_FIREBASE_SUCCESS:
+			return {
+				...currentState,
+				error: null,
+			};
+		case CartActionTypes.UPDATE_CART_IN_FIREBASE_FAILURE:
+			return {
+				...currentState,
+				error: action.payload,
+			};
 		default:
 			return currentState;
 	}
