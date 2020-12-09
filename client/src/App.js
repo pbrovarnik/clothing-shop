@@ -1,11 +1,10 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from './components/header/header.component';
 import Spinner from './components/spinner/spinner.conponent';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
-import ErrorPage from './components/error-boundary/error.component';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
@@ -24,31 +23,13 @@ const App = ({ checkUserSession, currentUser }) => {
 		checkUserSession();
 	}, [checkUserSession]);
 
-	let { pathname } = useLocation();
-
-	if (pathname.endsWith('/')) {
-		pathname = pathname.slice(0, -1);
-	}
-
-	const hasPath = [
-		'/',
-		'/shop',
-		'/shop/hats',
-		'/shop/jackets',
-		'/shop/sneakers',
-		'/shop/womens',
-		'/shop/mens',
-		'/checkout',
-		'/signIn',
-	].includes(pathname);
-
 	return (
 		<div>
 			<GlobalStyle />
 			<Header />
-			<Switch>
-				<ErrorBoundary>
-					<Suspense fallback={<Spinner />}>
+			<ErrorBoundary>
+				<Suspense fallback={<Spinner />}>
+					<Switch>
 						<Route exact path='/' component={HomePage} />
 
 						<Route path='/shop' component={ShopPage} />
@@ -60,14 +41,10 @@ const App = ({ checkUserSession, currentUser }) => {
 								currentUser ? <Redirect to='/' /> : <SignInAndSignOutPage />
 							}
 						/>
-						{!hasPath && (
-							<Route
-								render={() => <ErrorPage message='Sorry, this page does not exist' />}
-							/>
-						)}
-					</Suspense>
-				</ErrorBoundary>
-			</Switch>
+						<Redirect to='/' />
+					</Switch>
+				</Suspense>
+			</ErrorBoundary>
 		</div>
 	);
 };
