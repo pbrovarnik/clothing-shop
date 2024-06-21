@@ -1,15 +1,13 @@
-import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
 
 const StripeCheckoutButton = ({ price }) => {
+	const { APP_SERVER_URL, APP_STRIPE_PK } = import.meta.env;
 	const priceForStripe = price * 100;
-	const publishableKey =
-		'pk_test_51H1insJy1Xvz6b3qhK5P7jr3eWB0HRDkJPzCXFTazw4jjctiESSywVa55N7YHWO5dNMy3NaqLKNpU6OxP16K6YMY00ecxpRm3M';
 
 	const onToken = async (token) => {
 		try {
-			await axios.post('payment', {
+			await axios.post(`${APP_SERVER_URL}/api/v1/clothing-shop/payment`, {
 				amount: priceForStripe,
 				token,
 			});
@@ -22,16 +20,16 @@ const StripeCheckoutButton = ({ price }) => {
 
 	return (
 		<StripeCheckout
-			label='Pay Now'
-			name='Clothing Shop Ltd.'
+			label="Pay Now"
+			name="Clothing Shop Ltd."
 			billingAddress
 			shippingAddress
-			image='https://svgshare.com/i/CUz.svg'
+			image="./crwn-192x192.png"
 			description={`Your total is $${price}`}
 			amount={priceForStripe}
-			panelLabel='Pay Now'
+			panelLabel="Pay Now"
 			token={onToken}
-			stripeKey={publishableKey}
+			stripeKey={APP_STRIPE_PK}
 		/>
 	);
 };
