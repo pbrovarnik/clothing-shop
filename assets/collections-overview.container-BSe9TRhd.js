@@ -1,4 +1,4 @@
-import{p as o,w as d,j as e,a as r,b as c,q as m}from"./index-BCybB48d.js";import{C as x,s as C,a as v,W as f}from"./collection-item.component-B0yfC30O.js";const w=o.div`
+import{p as o,w as d,j as e,a as r,b as c,q as m}from"./index-Cj6QryI4.js";import{C as x,s as C,a as v,W as f}from"./collection-item.component-BiaeAwm5.js";const w=o.div`
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 30px;
