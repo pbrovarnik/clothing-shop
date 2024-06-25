@@ -1,4 +1,4 @@
-import{p as n,b as s,j as e,a as l,q as r}from"./index-D4258v5v.js";import{C as c,b as p,c as d,W as m}from"./collection-item.component-Dv0pT5Fq.js";const x=n.div`
+import{p as n,b as s,j as e,a as l,q as r}from"./index-BCybB48d.js";import{C as c,b as p,c as d,W as m}from"./collection-item.component-B0yfC30O.js";const x=n.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
