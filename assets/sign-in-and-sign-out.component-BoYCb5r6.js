@@ -1,4 +1,4 @@
-import{j as e,p as l,b as x,r as h,C as g,g as w,h as j,s as f}from"./index-BCybB48d.js";const o=({handleChange:s,label:n,...a})=>e.jsxs("div",{className:"group",children:[e.jsx("input",{className:"form-input",onChange:s,...a}),n?e.jsx("label",{className:`${a.value.length?"shrink":""} form-input-label`,children:n}):null]}),y=l.div`
+import{j as e,p as l,b as x,r as h,C as g,g as w,h as j,s as f}from"./index-D4258v5v.js";const o=({handleChange:s,label:n,...a})=>e.jsxs("div",{className:"group",children:[e.jsx("input",{className:"form-input",onChange:s,...a}),n?e.jsx("label",{className:`${a.value.length?"shrink":""} form-input-label`,children:n}):null]}),y=l.div`
 	width: 380px;
 	display: flex;
 	flex-direction: column;
